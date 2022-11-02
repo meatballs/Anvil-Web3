@@ -1,0 +1,54 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: Web3Modal Anvil Demo, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'CBLLDL,OHQPHX'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_2
+  layout_properties: {grid_position: 'AAGGFT,UIWINO'}
+  data_bindings:
+  - {property: text, code: self.connection_text}
+- type: FlowPanel
+  properties: {}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'ZAKPWW,WNXBXA'}
+  components:
+  - type: Label
+    properties: {}
+    name: label_3
+    layout_properties: {}
+    data_bindings:
+    - {property: visible, code: self.connected}
+    - {property: text, code: 'self.chain_data["name"]'}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Connect Wallet, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: button_connect
+    layout_properties: {grid_position: 'OSEWDQ,BBRTLI'}
+    event_bindings: {click: button_connect_click}
+    data_bindings:
+    - {property: visible, code: not self.connected}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: button_disconnect
+    layout_properties: {}
+    data_bindings:
+    - {property: visible, code: self.connected}
+    - {property: text, code: 'f"{self.account[:6]}...{self.account[-4:]}"'}
+    event_bindings: {click: button_disconnect_click}
+is_package: true
+component: []

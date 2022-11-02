@@ -1,0 +1,20 @@
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+startup: {type: module, module: startup}
+package_name: Demo___Web3Modal
+allow_embedding: false
+name: Anvil-Web3
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+startup_form: null
+native_deps: {head_html: '<script type="text/javascript" src="https://unpkg.com/web3@1.8.0/dist/web3.min.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.9/dist/index.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>'}
+db_schema: {}
+renamed: true
